@@ -1,15 +1,12 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 
 const app = express();
-
-app.use(cors());
 const port = process.env.PORT || 3010;
 
 // sendFile will go here
-app.get('/test', function(req, res) {
-    res.send({ message: 'awesome!!' })
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 app.listen(port);
